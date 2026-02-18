@@ -20,6 +20,9 @@ public class RegistrationPage {
     // Кнопка "Создать аккаунт"
     private SelenideElement createAccountButton = $(byXpath(".//button[text()='Создать аккаунт']"));
 
+    // Локатор сообщения об ошибке
+    private SelenideElement errorMessage = $(byXpath(".//span[text()='Ошибка']"));
+
 
 
     // Метод заполнения поля Email
@@ -43,6 +46,11 @@ public class RegistrationPage {
     // Метод клика по кнопке "Создать аккаунт"
     public void clickCreateAccount() {
         createAccountButton.shouldBe(visible).click();
+    }
+
+    // Метод проверки появления ошибки
+    public void checkErrorMessageVisible() {
+        errorMessage.shouldBe(visible);
     }
 
     public RegistrationPage fillForm(String email, String password) {

@@ -25,6 +25,11 @@ public class ProfilePage {
         editAdIcon.shouldBe(visible).click();
     }
 
+    // Проверка, что объявление с конкретным названием отображается
+    public void checkAdExists(String title) {
+        $(byText(title)).shouldBe(visible);
+    }
+
     public void editAdByTitle(String title) {
         //метод поиска объявления по названию
         $(byText(title))
@@ -32,5 +37,10 @@ public class ProfilePage {
                 .find(".editButton")
                 .shouldBe(visible)
                 .click();
+    }
+
+    public void checkAdNotExists(String title) {
+        // Элемента с таким текстом быть не должно
+        $(byText(title)).shouldNotBe(visible);
     }
 }

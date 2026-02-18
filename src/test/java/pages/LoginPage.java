@@ -40,7 +40,7 @@ public class LoginPage {
     public void login(String email, String password) {
         setEmail(email);
         setPassword(password);
-        clickLoginButton();
+
     }
 
     // Метод клика по кнопке "Нет аккаунта"

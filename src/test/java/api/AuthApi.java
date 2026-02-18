@@ -10,11 +10,11 @@ public class AuthApi {
     private static final String BASE_URL = "https://qa-desk.stand.praktikum-services.ru/api";
 
     // Метод регистрации пользователя
-    public static void register(User user) {
+    public static void register(String email, String password) {
         given()
                 .baseUri(BASE_URL)
                 .contentType(ContentType.JSON)
-                .body(user) // Lombok сам преобразует объект в JSON благодаря геттерам
+                .body("{ \"email\": \"" + email + "\", \"password\": \"" + password + "\" }")
                 .when()
                 .post("/signup")
                 .then()
