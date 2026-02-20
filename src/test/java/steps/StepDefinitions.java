@@ -101,7 +101,7 @@ public class StepDefinitions {
 
     @Then("Отображается сообщение об ошибке {string}")
     public void checkErrorMessage(String expectedError) {
-        registrationPage.checkErrorMessageVisible();
+        registrationPage.checkErrorMessageText(expectedError);
     }
 
     @And("Заполнить форму авторизации данными созданного пользователя")

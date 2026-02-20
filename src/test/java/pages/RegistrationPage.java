@@ -1,6 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -21,7 +23,7 @@ public class RegistrationPage {
     private SelenideElement createAccountButton = $(byXpath(".//button[text()='Создать аккаунт']"));
 
     // Локатор сообщения об ошибке
-    private SelenideElement errorMessage = $(byXpath(".//span[text()='Ошибка']"));
+    private SelenideElement errorMessage = $(".input_span__yWPqB");
 
 
 
@@ -49,8 +51,8 @@ public class RegistrationPage {
     }
 
     // Метод проверки появления ошибки
-    public void checkErrorMessageVisible() {
-        errorMessage.shouldBe(visible);
+    public void checkErrorMessageText(String expectedText) {
+        errorMessage.shouldBe(visible).shouldHave(text(expectedText));
     }
 
     public RegistrationPage fillForm(String email, String password) {
