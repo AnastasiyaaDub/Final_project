@@ -107,7 +107,7 @@ public class StepDefinitions {
     @And("Заполнить форму авторизации данными созданного пользователя")
     public void fillLoginFormWithExistingUser() {
         // Используем данные из переменной currentUser, которую создали в шаге "Пользователь уже зарегистрирован"
-        loginPage.login(currentUser.email(), currentUser.password());
+        loginPage.fillLoginForm(currentUser.email(), currentUser.password());
     }
 
     @And("Заполнить форму объявления")

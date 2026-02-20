@@ -37,7 +37,7 @@ public class LoginPage {
     }
 
     // Составной метод для логина
-    public void login(String email, String password) {
+    public void fillLoginForm(String email, String password) {
         setEmail(email);
         setPassword(password);
 
