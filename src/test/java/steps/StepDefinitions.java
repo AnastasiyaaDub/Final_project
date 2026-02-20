@@ -9,7 +9,6 @@ import io.cucumber.java.ru.*;
 import pages.*;
 import model.User;
 import model.DataGenerator;
-import java.util.UUID;
 
 public class StepDefinitions {
 
@@ -33,8 +32,12 @@ public class StepDefinitions {
         mainPage.clickPlaceAdButton();
 
         // Генерируем данные
-        currentAdTitle = "Продам велик " + UUID.randomUUID().toString().substring(0, 5);
-        newAdPage.fillForm(currentAdTitle, "Описание для редактирования", "1000");
+        currentAdTitle = DataGenerator.generateAdTitle();
+        newAdPage.fillForm(
+                currentAdTitle,
+                DataGenerator.generateAdDescription(),
+                DataGenerator.generateAdPrice()
+        );
 
         newAdPage.clickPublish();
 
@@ -112,11 +115,13 @@ public class StepDefinitions {
 
     @And("Заполнить форму объявления")
     public void fillAdForm() {
-        currentAdTitle = "Продам велик " + UUID.randomUUID().toString().substring(0, 5); // Случайное название
-        String desc = "Очень хороший велосипед, почти новый.";
-        String price = "5000";
+        currentAdTitle = DataGenerator.generateAdTitle();
 
-        newAdPage.fillForm(currentAdTitle, desc, price);
+        newAdPage.fillForm(
+                currentAdTitle,
+                DataGenerator.generateAdDescription(),
+                DataGenerator.generateAdPrice()
+        );
     }
 
     @Then("Объявление успешно создано")
