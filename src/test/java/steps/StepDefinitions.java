@@ -42,21 +42,34 @@ public class StepDefinitions {
         profilePage.checkMyAdsSectionLoaded();
     }
 
-    @When("Нажать кнопку {string}")
-    public void clickButton(String buttonName) {
-        if (buttonName.equals("Вход и регистрация")) {
-            mainPage.clickLoginAndRegisterButton();
-        }else if (buttonName.equals("Нет аккаунта")) {
-                loginPage.clickNoAccount();
-        } else if (buttonName.equals("Создать аккаунт")) {
-            registrationPage.clickCreateAccount();
-        } else if (buttonName.equals("Войти")) {
+    @When("Нажать кнопку \"Вход и регистрация\"")
+    public void clickLoginAndRegister() {
+        mainPage.clickLoginAndRegisterButton();
+    }
+
+    @When("Нажать кнопку \"Нет аккаунта\"")
+    public void clickNoAccount() {
+        loginPage.clickNoAccount();
+    }
+
+    @When("Нажать кнопку \"Создать аккаунт\"")
+    public void clickCreateAccount() {
+        registrationPage.clickCreateAccount();
+    }
+
+    @When("Нажать кнопку \"Войти\"")
+    public void clickLogin() {
         loginPage.clickLoginButton();
-    } else if (buttonName.equals("Разместить объявление")) {
-            mainPage.clickPlaceAdButton();
-        } else if (buttonName.equals("Опубликовать")) {
-            newAdPage.clickPublish();
-        }
+    }
+
+    @When("Нажать кнопку \"Разместить объявление\"")
+    public void clickPlaceAd() {
+        mainPage.clickPlaceAdButton();
+    }
+
+    @When("Нажать кнопку \"Опубликовать\"")
+    public void clickPublish() {
+        newAdPage.clickPublish();
     }
 
     @And("Заполнить форму регистрации валидными данными")
